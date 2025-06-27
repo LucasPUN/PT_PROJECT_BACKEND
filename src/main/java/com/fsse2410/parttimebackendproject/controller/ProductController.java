@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
-@RequestMapping("/products")
+@CrossOrigin("http://localhost:5173")
+@RequestMapping("/public/products")
 public class ProductController {
     private final ProductService productService;
 

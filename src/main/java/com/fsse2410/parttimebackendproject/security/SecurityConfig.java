@@ -24,13 +24,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-               .authorizeHttpRequests(auth -> auth
+                .authorizeHttpRequests(auth -> auth
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/products/**").permitAll() 
+                        .requestMatchers("/public/**").permitAll()
                         .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
-                .cors(Customizer.withDefaults());
-        http
+                .cors(Customizer.withDefaults())
                 .oauth2ResourceServer(
                         oauth2ResourceServer -> oauth2ResourceServer.jwt(
                                 jwt -> jwt.decoder(
